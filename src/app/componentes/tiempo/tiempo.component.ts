@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-tiempo',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TiempoComponent implements OnInit {
 
-  constructor() { }
+  formulario: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    
+    //iniciando la contruccion del formulario
+    this.formulario = this.fb.group({
+      ciudad: ['Santiago'],
+      codigo: ['CL']
+    })
+
+  }
 
   ngOnInit(): void {
+  }
+  
+
+  consultar(){
+    console.log("Formulario: ", this.formulario);
+    
   }
 
 }
